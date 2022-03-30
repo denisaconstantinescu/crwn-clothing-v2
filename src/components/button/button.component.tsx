@@ -1,16 +1,16 @@
-import { FC, HTMLAttributes, HTMLProps } from "react";
+import { FC, ButtonHTMLAttributes } from 'react';
 
 import {
   BaseButton,
   GoogleSignInButton,
   InvertedButton,
   LoadingSpinner,
-} from "./button.styles";
+} from './button.styles';
 
 export enum BUTTON_TYPE_CLASSES {
-  base = "base",
-  google = "google-sign-in",
-  inverted = "inverted",
+  base = 'base',
+  google = 'google-sign-in',
+  inverted = 'inverted',
 }
 
 const getButton = (buttonType = BUTTON_TYPE_CLASSES.base): typeof BaseButton =>
@@ -23,9 +23,7 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.base): typeof BaseButton =>
 export type ButtonProps = {
   buttonType?: BUTTON_TYPE_CLASSES;
   isLoading?: boolean;
-  type?: "button" | "submit" | "reset" | undefined;
-  onClick?: () => void;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<ButtonProps> = ({
   children,
